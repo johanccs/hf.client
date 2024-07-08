@@ -1,0 +1,10 @@
+.center {
+    margin: 0 auto; 
+    margin-top: 15%; 
+    width: 25%;
+}
+
+.medium {
+    font-family: 'Montserrat';
+    font-size: small;
+}
