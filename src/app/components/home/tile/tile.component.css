@@ -1,0 +1,11 @@
+
+.close-icon:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    background-color: white;
+    font-size: 19px;
+}
+
+.card-body:hover {
+    box-shadow: 3px 3px lightgray;
+}

@@ -8,3 +8,13 @@
     font-family: 'Montserrat';
     font-size: small;
 }
+
+#flexCheckLabel {
+    font-size: 11px;
+    margin-left: 5px;
+    font-family: 'Montserrat';
+}
+
+#flexCheckDefault {
+    margin-left: -15px;
+}

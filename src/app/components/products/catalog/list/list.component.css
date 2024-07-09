@@ -2,5 +2,4 @@
     display: grid;
     grid-template-columns: 33% 33% 33%;
     align-items: center;
-    margin-top: 5px;
 }
