@@ -24,11 +24,14 @@ li {
 }
 
 .center {
-    margin-top: 5px;
+    margin-top: 1px;
     margin: auto 0;
     padding-top: 6px;
 }
 
 img {
     opacity: 0.7;
+    height: 30px; 
+    margin-left: 10px; 
+    margin-top: -7px;
 }

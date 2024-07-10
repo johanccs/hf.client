@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailComponent {
 
   product: Product;
+  title: string = 'Change Product detail';
 
   constructor(private route: ActivatedRoute){}
 
