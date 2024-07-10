@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Product } from '../../../../models/products/product';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './product-detail.component.css'
 })
 export class ProductDetailComponent {
+
+  product: Product;
+
+  constructor(private route: ActivatedRoute){}
+
+  ngOnInit(){
+    this.route.params.subscribe(params => {
+      this.product = params as Product;
+      console.log("Params", this.product);
+    })
+  }
 
 }
