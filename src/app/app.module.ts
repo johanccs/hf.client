@@ -15,6 +15,7 @@ import { UserComponent } from './components/navs/user/user.component';
 import { ListComponent } from './components/products/catalog/list/list.component';
 import { ItemComponent } from './components/products/catalog/item/item.component';
 import { TileComponent } from './components/home/tile/tile.component';
+import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TileComponent } from './components/home/tile/tile.component';
     UserComponent,
     ListComponent,
     ItemComponent,
-    TileComponent
+    TileComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

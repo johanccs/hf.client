@@ -1,0 +1,47 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    font-family: 'Montserrat'; 
+    font-weight: 100; 
+    font-size: 0.8rem;
+}
+
+li {
+    float: left;
+    margin-right: 15px;
+}
+
+.container {
+    background-color: whitesmoke; 
+    border-radius: 15px;
+    height: 32px;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.center {
+    margin-top: 5px;
+    margin: auto 0;
+    padding-top: 6px;
+}
+
+#search-input {
+    height: 23px;
+    margin: 0 auto; 
+    margin-top: 4px; 
+}
+
+#search-button {
+    font-family: 'Montserrat';
+    display: grid;
+    align-items: center;
+}
+
+#search-button:hover {
+    cursor: pointer;
+    font-style: italic;
+}

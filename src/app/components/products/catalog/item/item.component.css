@@ -1,6 +1,6 @@
 .medium {
     font-family: 'Montserrat';
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .lg {
@@ -15,8 +15,11 @@ img {
 }
 
 .qty-location {
-    width: 50px; 
-    height: 22px; 
+    width: 60px; 
+    height: 25px; 
     margin-left: 10px; 
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    border-color: gray;
+    font-size: 13px;
 }

@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class InvoiceDetailComponent {
 
+title: string = 'Invoice Detail';
+
 }

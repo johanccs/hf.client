@@ -5,9 +5,10 @@
                 <img src="assets/images/logo.png" 
                      routerLink="/home"/>
             </li>
-            <li class='nav' routerLink="admin-product-list">View invoices</li>
-            <li>All products</li>
-            <li style="float: right;">
+            <li class='nav' routerLink="">Invoices</li>
+            <li class="nav" routerLink="admin-product-list">Products</li>
+            <li>Temp - is in admin</li>
+            <li style="float: right;" (click)="logout()">
                 <i class="bi bi-box-arrow-left"></i>
             </li>
 
