@@ -7,6 +7,7 @@ import { ProductListComponent } from './components/products/admin/list/product-l
 import { ProductDetailComponent } from './components/products/admin/detail/product-detail.component';
 import { InvoiceListComponent } from './components/invoices/list/invoice-list.component';
 import { InvoiceDetailComponent } from './components/invoices/detail/invoice-detail.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'admin-product-list', component: ProductListComponent },
   { path: 'admin-product-edit', component: ProductDetailComponent },
   { path: 'user-invoices', component: InvoiceListComponent },
-  { path: 'user-invoice', component: InvoiceDetailComponent }
+  { path: 'user-invoice', component: InvoiceDetailComponent },
+  { path: 'cart', component: ShoppingCartComponent },
 ];
 
 @NgModule({

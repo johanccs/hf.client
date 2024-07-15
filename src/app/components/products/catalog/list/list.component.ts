@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from '../../../../models/products/product';
+import { ListProductType } from '../../../../models/products/listProductType';
+import { ProductService } from '../../../../services/product-service/product-service';
 
 @Component({
   selector: 'app-list',
@@ -7,17 +8,19 @@ import { Product } from '../../../../models/products/product';
   styleUrl: './list.component.css'
 })
 export class ListComponent {
-  products: Product[] = [];
+  products: ListProductType[] = [];
   title: string = 'Catalog';
 
-  ngOnInit(){
+  constructor(private prodService: ProductService){}
 
-    this.products.push(new Product("Laptop"));
-    this.products.push(new Product("Mouse"));
-    this.products.push(new Product("Keyboard"));
-    this.products.push(new Product("Monitor"));
-    this.products.push(new Product("Chair"));
-    this.products.push(new Product("SSD"));
+  ngOnInit(){
+    this.getProducts();
+  }
+
+  getProducts(){
+    this.prodService.getProducts().subscribe(data => {
+      this.products = data as ListProductType[];
+    });
   }
 
 }

@@ -5,18 +5,18 @@
         <thead>
             <th>Id</th>
             <th>Client Name</th>
-            <th>Product Id</th>
             <th>Product Name</th>
             <th>Product Description</th>
+            <th>Quantity</th>
             <th>Actions</th>
         </thead>
         <tbody>
             <tr *ngFor="let invoice of invoices">
                 <td class="td-id">{{invoice.id}}</td>
                 <td class="td-name">{{invoice.clientName}}</td>
-                <td class="td-id">{{invoice.prodId}}</td>
-                <td class="td-name">{{invoice.prodName}}</td>
-                <td>{{invoice.prodDesc}}</td>
+                <td class="td-name">{{invoice.productName}}</td>
+                <td>{{invoice.productDescription}}</td>
+                <td>{{invoice.quantity}}</td>
                 <td class="td-action">
                     <span>
                         <i id="modify" class="bi bi-pencil-square me-4" (click)="modifyInvoice(invoice)"></i>

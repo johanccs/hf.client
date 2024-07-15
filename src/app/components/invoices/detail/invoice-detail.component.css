@@ -1,0 +1,12 @@
+.form-label {
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+
+input {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}

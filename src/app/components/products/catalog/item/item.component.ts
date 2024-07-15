@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ListProductType } from '../../../../models/products/listProductType';
 
 @Component({
   selector: 'app-prod-item',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './item.component.css'
 })
 export class ItemComponent {
+
+  @Input() cartItem: ListProductType;
+
+  ngOnInit(){
+    console.log('CartItem' ,this.cartItem);
+  }
 
 }

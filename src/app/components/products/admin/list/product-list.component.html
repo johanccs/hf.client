@@ -9,10 +9,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of products">
-                <td class="td-name">{{product.name}}</td>
-                <td>{{'Description of product'}}</td>
-                <td class="td-price">{{100}}</td>
-                <td class="td-price">{{100}}</td>
+                <td class="td-name">{{product.productName}}</td>
+                <td>{{product.productDescription}}</td>
+                <td class="td-price">{{product.price | currency : 'ZAR' : 'symbol-narrow' : '1.2-2'}}</td>
+                <td class="td-price">{{product.quantity}}</td>
                 <td class="td-action">
                     <span>
                         <i id="modify" class="bi bi-pencil-square me-4" (click)="modifyProduct(product)"></i>

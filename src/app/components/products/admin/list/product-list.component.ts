@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from '../../../../models/products/product';
+import { ListProductType } from '../../../../models/products/listProductType';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,21 +9,15 @@ import { Router } from '@angular/router';
 })
 export class ProductListComponent {
 
-  products: Product[] = [];
+  products: ListProductType[] = [];
   
   constructor(private router: Router){}
 
   ngOnInit(){
-
-    this.products.push(new Product("Laptop"));
-    this.products.push(new Product("Mouse"));
-    this.products.push(new Product("Keyboard"));
-    this.products.push(new Product("Monitor"));
-    this.products.push(new Product("Chair"));
-    this.products.push(new Product("SSD"));
+    
   }
 
-  modifyProduct(product: Product){
+  modifyProduct(product: ListProductType){
     this.router.navigate(['admin-product-edit', product]);
   }
 

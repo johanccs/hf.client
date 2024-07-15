@@ -1,20 +1,20 @@
 <div class="card mt-2 ms-4">
-    <div class="card-body">
-        <!-- <div class="close-icon" style="float: right; margin-top: -15px;">x</div> -->
+    <div class="card-body" style="height: 200px;">
         <button type="button" 
                 class="btn-close" 
                 aria-label="Close" 
                 style="float: right; margin-top: -15px; width: 1px;"></button>
         <div class="card-text">
-            <span>Tile Title</span>
+            <div>{{tileDetail.name}}</div>
+            <img src={{tileDetail.imageUrl}}/>
         </div>
         <div class="card-text">
-            <span> 
-                Click on the 'Next' link to navigate
-            </span>
-            <span>
-                <label>Next</label>
-            </span>
+            <div> 
+                {{tileDetail.description}}
+            </div>
+            <div>
+                <label (click)="navigate(tileDetail.route)"><strong>Click..</strong></label>
+            </div>
         </div>
     </div>
 </div>

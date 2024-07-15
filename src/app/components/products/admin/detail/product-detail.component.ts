@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from '../../../../models/products/product';
+import { ListProductType } from '../../../../models/products/listProductType';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,15 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent {
 
-  product: Product;
+  product: ListProductType;
   title: string = 'Change Product detail';
 
   constructor(private route: ActivatedRoute){}
 
   ngOnInit(){
     this.route.params.subscribe(params => {
-      this.product = params as Product;
-      console.log("Params", this.product);
+      this.product = params as ListProductType;
     })
   }
 

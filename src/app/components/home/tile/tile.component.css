@@ -9,3 +9,12 @@
 .card-body:hover {
     box-shadow: 3px 3px lightgray;
 }
+
+.card, label {
+    font-family: 'Montserrat';
+}
+
+img {
+    width: 100px;
+    margin-bottom: 10px;
+}

@@ -16,8 +16,8 @@ export class HomeComponent {
   }
 
   setupTiles(){
-    this.tiles.push(new Tile("logout", 'Logout', 'Click to log out of application'));
-    this.tiles.push(new Tile("view-invoices", 'View Invoices', 'Click to log out of application'));
-    this.tiles.push(new Tile("view-products", 'View Products', 'Click to log out of application'));
+    this.tiles.push(new Tile("login", 'Logout', 'Click to log out of application', 'assets/images/gen/login.png'));
+    this.tiles.push(new Tile("user-invoices", 'View Invoices', 'Click to log out of application','assets/images/gen/invoice.png'));
+    this.tiles.push(new Tile("admin-product-list", 'View Products', 'Click to log out of application',''));
   }
 }

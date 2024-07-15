@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Tile } from '../../../models/tile';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tile',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './tile.component.css'
 })
 export class TileComponent {
+@Input() tileDetail: Tile
 
+constructor(private router: Router){}
+
+  navigate(route:string){
+    this.router.navigate([route]);
+  }
 }

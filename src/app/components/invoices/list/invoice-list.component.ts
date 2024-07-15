@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ListInvoiceType } from '../../../models/invoices/listInvoiceType';
 import { Router } from '@angular/router';
+import { InvoiceService } from '../../../services/invoice-service/invoice.service';
 
 @Component({
   selector: 'app-invoice-list',
@@ -11,21 +12,20 @@ export class InvoiceListComponent {
 
   invoices: ListInvoiceType[] = [];
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private invoiceService: InvoiceService){}
 
   ngOnInit(){
     this.getInvoices();
-
-
   }
 
   getInvoices(){
-    this.invoices.push(new ListInvoiceType(1, 1, 'Johan Potgieter', 1, 'Laptop', 'Asus Tuff A15'));
-    this.invoices.push(new ListInvoiceType(2, 2, 'Nikki Heck', 2, 'Mouse', 'Logitec mouse'));
-    this.invoices.push(new ListInvoiceType(3, 3, 'John Doe', 3, 'Keyboard', 'Mecer keyboard'));
+   this.invoiceService.getInvoicesByClientId(1).subscribe(data => {
+    this.invoices = data as ListInvoiceType[];
+   })
   }
 
   modifyInvoice(invoice: ListInvoiceType){
-    this.router.navigate(['user-invoice'])
+    this.router.navigate(['user-invoice'], {queryParams: invoice});
+    console.log("Invoice from list", invoice);
   }
 }

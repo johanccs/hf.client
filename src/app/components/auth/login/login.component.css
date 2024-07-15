@@ -18,3 +18,8 @@
 #flexCheckDefault {
     margin-left: -15px;
 }
+
+input, button {
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
