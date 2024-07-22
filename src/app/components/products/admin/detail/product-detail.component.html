@@ -4,23 +4,36 @@
         <div class="card" style="width: 40%; margin: 0 auto; margin-top: 0px;">
             <div class="mb-3 mt-2">
                 <label for="productName" class="form-label">Product Name:</label>
-                <input type="text" id="productName" class="form-control form-control-sm">
+                <input type="text" 
+                       id="productName"
+                       name="productName"
+                       [(ngModel)]="product.productName"
+                       class="form-control form-control- input-border">
             </div>
             <div class="mb-3">
                 <label for="productDesc" class="form-label">Product Description:</label>
-                <input type="text" id="productDesc" class="form-control form-control-sm">
+                <input type="text" 
+                       id="productDesc" 
+                       [(ngModel)]="product.productDescription"
+                       class="form-control form-control-sm input-border">
             </div>
             <div class="mb-3">
                 <label for="productPrice" class="form-label">Price:</label>
-                <input type="text" id="productPrice" class="form-control form-control-sm">
+                <input type="text" 
+                       id="productPrice" 
+                       [(ngModel)]="product.price"
+                       class="form-control form-control-sm input-border">
             </div>
             <div class="mb-3">
                 <label for="qtyOnHand" class="form-label">Quantity on hand:</label>
-                <input type="text" id="qtyOnHand" class="form-control form-control-sm">
+                <input type="text" 
+                       id="qtyOnHand" 
+                       [(ngModel)]="product.quantity"
+                       class="form-control form-control-sm input-border">
             </div>
 
             <div>
-                <button class="btn btn-primary btn-sm mb-3" style="width: 100%;">
+                <button class="btn btn-warning btn-sm mb-3" style="width: 100%;">
                     <i class="bi bi-floppy"></i>
                 </button>
             </div>

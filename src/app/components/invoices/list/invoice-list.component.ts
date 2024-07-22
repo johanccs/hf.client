@@ -26,6 +26,5 @@ export class InvoiceListComponent {
 
   modifyInvoice(invoice: ListInvoiceType){
     this.router.navigate(['user-invoice'], {queryParams: invoice});
-    console.log("Invoice from list", invoice);
   }
 }

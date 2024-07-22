@@ -4,3 +4,17 @@
     cursor: pointer;
     font-style: italic;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.body-font {
+    font-family: 'Montserrat';
+}
+
+.input-border {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}

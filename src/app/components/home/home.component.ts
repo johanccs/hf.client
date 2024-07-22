@@ -12,7 +12,6 @@ export class HomeComponent {
 
   ngOnInit(){
     this.setupTiles();
-    console.log(this.tiles);
   }
 
   setupTiles(){

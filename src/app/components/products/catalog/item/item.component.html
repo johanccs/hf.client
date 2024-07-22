@@ -4,16 +4,22 @@
             <h5 class="card-title" class="lg">{{cartItem.productName}}</h5>
             <div class="card-text">
                 <div>
-                    <img src="assets/images/products/boot-ang1.png" />
+                    <img src="assets/images/products/tmp/laptop.jpg" />
                 </div>
-                <div>
+                <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
                     <div class="medium">{{cartItem.productDescription}}</div>
                     <div class="medium">Price {{cartItem.price | currency : 'ZAR' : 'symbol-narrow' : '1.2-2'}}</div>
                     <span class="medium">Quantity</span>
                     <span>
-                        <input type="number" class="qty-location"/>
+                        <input type="text" 
+                               name="quantity"
+                               [(ngModel)]="newInvoice.quantity"
+                               class="qty-location"/>
                     </span>
-                </div>
+                    <button type="submit" class="btn btn-outline-warning btn-sm" style="float: right;">
+                        <i class="bi bi-cart4"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

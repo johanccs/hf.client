@@ -1,0 +1,41 @@
+<div class="container mt-4">
+    <!-- <app-search-bar></app-search-bar> -->
+    
+    <table class="table table-bordered  table-striped table-hover">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Is Admin</th>
+            <th>Date Registered</th>
+            <th>Account Locked</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td class="td-id">{{user.id}}</td>
+                <td class="td-name">{{user.name}}</td>
+                <td class="td-name">{{user.surname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.username}}</td>
+                <td>
+                    <input type="checkbox" class="form-check" [checked]="user.isAdmin">
+                </td>
+                <td>{{user.dateRegistered}}</td>
+                <td>
+                    <input type="checkbox" class="form-check" [checked]="user.accountLocked">
+                </td>
+                <td class="td-action">
+                    <span>
+                        <i id="modify" class="bi bi-pencil-square cursor-pointer me-4" (click)="modifyUser(user)"></i>
+                    </span>
+                    <span>
+                        <i id="delete" class="bi bi-trash3 cursor-pointer ms-4"></i>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
