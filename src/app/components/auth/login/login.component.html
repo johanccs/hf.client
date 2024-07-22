@@ -1,39 +1,29 @@
 <div class="container"> 
-    
+    <div style="text-align: center;">{{title}}</div>
     <div class="center" >
         <div class="row">
             <div class="col">
-                <input class="form-control" type="text" placeholder="username" [(ngModel)]="loginDto.username" />
+                <input class="form-control input-border" type="text" placeholder="username" [(ngModel)]="loginDto.username" />
             </div>
         </div>
     
         <div class="row mt-2">
             <div class="col">
-                <input class="form-control" type="password" placeholder="password" [(ngModel)]="loginDto.password"/>
+                <input class="form-control input-border" type="password" placeholder="password" [(ngModel)]="loginDto.password"/>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
                 <button class="btn btn-warning btn-sm mt-2" style="width: 100%;" (click)="login()">{{buttonMessage}}</button>
+                <label class="err" *ngIf="isMsgVisible">{{errMsg}}</label>
             </div>
         </div>
 
-        <div class="row mt-2">
-            <label class="medium">Sign up</label>
-            <label class="medium">Forgot password</label>
+        <div class="mt-2">
+            <div class="medium cursor-pointer link" routerLink="/signup">Sign up</div>
+            <div class="medium cursor-pointer link mt-2" routerLink="/forgot-password">Forgot password</div>
         </div>
-
-        <div class="row mt-2">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault" id="flexCheckLabel">
-                    Admin
-                </label>
-            </div>
-        </div>
-
-
     </div>
-    
 </div>
+

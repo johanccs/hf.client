@@ -17,7 +17,6 @@ invoice: ListInvoiceType;
   ngOnInit(){
     this.route.queryParams.subscribe(params => {
       this.invoice = params as ListInvoiceType;
-      console.log('From Invoice Detail', params);
     })
   }
 

@@ -1,0 +1,61 @@
+
+<div class="row mt-2">
+    <div class='title' style="text-align: center;">{{title}}</div>
+    <div class="card" style="width: 40%; margin: 0 auto; margin-top: 10px;">
+        <div class="form-floating mb-2 mt-1">
+            <input type="text" 
+                   id="id" 
+                   [value]="user.id"
+                   class="form-control form-control-sm input-border">
+            <label for="Id" class="form-label">User Id</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" 
+                   id="name"
+                   [value]= "user.name" 
+                   class="form-control form-control-sm input-border">
+            <label for="name" class="form-label">Name</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" 
+                   id="surname"
+                   [value]= "user.surname" 
+                   class="form-control form-control-sm input-border">
+            <label for="surname" class="form-label">Surname</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" 
+                   id="email"
+                   [value]= "user.email" 
+                   class="form-control form-control-sm input-border">
+            <label for="email" class="form-label">Email</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" 
+                   id="registeredDate"
+                   [value]= "user.dateRegistered" 
+                   class="form-control form-control-sm input-border">
+            <label for="registeredDate" class="form-label">Date Registered</label>
+        </div>
+        <div class="form-check mt-2 ms-3">
+            <input type="checkbox" 
+                   id="accountLocked"
+                   [checked]= "user.accountLocked" 
+                   class="form-check-input input-border">
+            <label for="accountLocked" class="form-check-label form-label">Account Locked</label>
+        </div>
+        <div class="form-check mt-2 ms-3">
+            <input type="checkbox" 
+                   id="isAdmin"
+                   [checked]= "user.isAdmin" 
+                   class="form-check-input input-border">
+            <label for="isAdmin" class="form-check-label form-label">Admin Account</label>
+        </div>
+        <div>
+            <button class="btn btn-warning btn-sm mb-3" style="width: 100%;">
+                <i class="bi bi-floppy"></i>
+            </button>
+        </div>
+    </div>
+</div>
+

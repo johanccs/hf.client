@@ -16,8 +16,13 @@ import { ListComponent } from './components/products/catalog/list/list.component
 import { ItemComponent } from './components/products/catalog/item/item.component';
 import { TileComponent } from './components/home/tile/tile.component';
 import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { FooterNavComponent } from './components/navs/footer-nav/footer-nav.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { UsersComponent } from './components/auth/users/list/users.component';
+import { UserDetailComponent } from './components/auth/users/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { HttpClientModule } from '@angular/common/http';
     ItemComponent,
     TileComponent,
     SearchBarComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    SignupComponent,
+    ForgotPasswordComponent,
+    FooterNavComponent,
+    UsersComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

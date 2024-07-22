@@ -1,0 +1,72 @@
+
+<div class="row mt-2">
+    <div class='title' style="text-align: center;">{{title}}</div>
+    <div class="card" style="width: 40%; margin: 0 auto; margin-top: 10px;">
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+            <div class="form-floating mb-2 mt-1">
+                <input type="text" 
+                       name="name"
+                       ngModel
+                       required
+                       class="form-control form-control-sm input-border">
+                <label class="form-label">Name:</label>
+            </div>
+        
+            <div class="form-floating mb-2">
+                <input type="text"
+                       name="surname"  
+                       ngModel
+                       required
+                       class="form-control form-control-sm input-border">
+                <label class="form-label">Surname</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="email"
+                       name="email"  
+                       ngModel
+                       required
+                       class="form-control form-control-sm input-border">
+                <label class="form-label">E-mail</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="username"
+                       name="username"  
+                       ngModel
+                       required
+                       class="form-control form-control-sm input-border">
+                <label class="form-label">Username</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="password"
+                       name="password"  
+                       ngModel
+                       required
+                       class="form-control form-control-sm input-border">
+                <label class="form-label">Password</label>
+            </div>
+        
+            <div class="form-check mb-2 ms-3">
+                <input type="checkbox"
+                       name="isAdmin"  
+                       ngModel
+                       class="form-check-input">
+                <label class="form-check-label body-font">Is Admin</label>
+            </div>
+        
+            
+            <div class="form-floating mb-2">
+                <input type="date" 
+                       ngModel
+                       name="dateRegistered" 
+                       class="form-control form-control-sm input-border">
+                <label class="form-label">Date Registered</label>
+            </div>
+            <div>
+                <button class="btn btn-warning btn-sm mb-3" style="width: 100%;">
+                    <i class="bi bi-floppy"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -6,6 +6,10 @@
     font-size: 19px;
 }
 
+.card {
+    height: 300px;
+}
+
 .card-body:hover {
     box-shadow: 3px 3px lightgray;
 }

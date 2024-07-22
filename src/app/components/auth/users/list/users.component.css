@@ -5,11 +5,15 @@ td {
 }
 
 .td-name {
-    width: 200px;
+    width: 150px;
 }
 
 .td-price {
     width: 150px;
+}
+
+.td-id {
+    width: 90px;
 }
 
 .td-action {
@@ -20,7 +24,6 @@ th {
     font-family: Montserrat; 
     font-weight: bolder; 
     font-size: 0.9rem;
-    text-align: center;
 }
 
 #modify{
@@ -35,3 +38,4 @@ button {
     border-radius: 20px;
     float: right;
 }
+

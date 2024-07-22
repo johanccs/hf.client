@@ -1,12 +1,16 @@
 <div class="container">
-  <div *ngIf="!isUserLoginType">
+  <!-- <div *ngIf="!isUserLoginType">
     <app-nav-admin></app-nav-admin>
   </div>
   <div *ngIf="isUserLoginType">
     <app-nav-user></app-nav-user>
-  </div>
+  </div> -->
+  
+  <app-nav-admin></app-nav-admin>
+  <app-nav-user></app-nav-user>
   
   <div class="mt-4" styles="margin: 0 auto">
     <router-outlet></router-outlet>
+    <app-footer-nav></app-footer-nav>
   </div>
 </div>
