@@ -12,6 +12,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { UsersComponent } from './components/auth/users/list/users.component';
 import { UserDetailComponent } from './components/auth/users/user-detail/user-detail.component';
+import { CreateProductComponent } from './components/products/admin/create-product/create-product.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'catalog', component: ListComponent },
   { path: 'admin-product-list', component: ProductListComponent },
   { path: 'admin-product-edit', component: ProductDetailComponent },
+  { path: 'admin-product-create', component: CreateProductComponent },
   { path: 'user-invoices', component: InvoiceListComponent },
   { path: 'user-invoice', component: InvoiceDetailComponent },
   { path: 'cart', component: ShoppingCartComponent },

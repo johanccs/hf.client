@@ -1,6 +1,5 @@
-export class ListProductType {
+export class CreateProductType {
     constructor(
-        public id: string,
         public productName: string,
         public productDescription: string,
         public price: number,

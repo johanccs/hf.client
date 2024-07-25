@@ -18,7 +18,6 @@ export class ForgotPasswordComponent {
 
     const password = new ResetPassword(form.value.email);
     this.authService.resetPassword(password).subscribe(data => {
-      console.log(data);
       alert('Sending instructions through email');
     })
   }

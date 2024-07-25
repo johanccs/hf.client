@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { ListInvoiceType } from '../../../models/invoices/listInvoiceType';
 import { Router } from '@angular/router';
 import { InvoiceService } from '../../../services/invoice-service/invoice.service';
+import { LocalStorage } from '../../../helpers/localStorage';
+import { NewInvoiceHeader } from '../../../models/invoices/newInvoiceHeader';
+import { ListInvoiceHeader } from '../../../models/invoices/listInvoiceHeader';
+import { InvoiceResponse } from '../../../models/invoices/Response/InvoiceResponse';
 
 @Component({
   selector: 'app-invoice-list',
@@ -10,21 +14,38 @@ import { InvoiceService } from '../../../services/invoice-service/invoice.servic
 })
 export class InvoiceListComponent {
 
-  invoices: ListInvoiceType[] = [];
+  invoices: InvoiceResponse[] = [];
+  localStorage: LocalStorage;
 
   constructor(private router: Router, private invoiceService: InvoiceService){}
 
   ngOnInit(){
     this.getInvoices();
+    this.localStorage = new LocalStorage();
   }
 
   getInvoices(){
-   this.invoiceService.getInvoicesByClientId(1).subscribe(data => {
-    this.invoices = data as ListInvoiceType[];
+
+    const client = this.getLocalStorage('cred_cache');
+  
+    this.invoiceService.getInvoicesByClientId(client.clientId).subscribe(data => {
+     console.log(data);
+     const internal_invoices = data as InvoiceResponse[];
+     this.invoices = internal_invoices.map(x=> {
+      return new InvoiceResponse(x.id, x.id.slice(0,5), x.clientId, x.friendlyName, x.date,x.subtotal);
+     });
    })
   }
 
-  modifyInvoice(invoice: ListInvoiceType){
+  modifyInvoice(invoice: ListInvoiceHeader){
     this.router.navigate(['user-invoice'], {queryParams: invoice});
   }
+
+  private getLocalStorage(key: string){
+    const val = localStorage.getItem(key);
+    const strVal= JSON.parse(val);
+
+    return strVal;
+}
+
 }

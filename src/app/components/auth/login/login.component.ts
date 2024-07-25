@@ -5,6 +5,10 @@ import { LoginDto } from '../../../models/user/loginDto';
 import { Result } from '../../../models/result';
 import { LocalStorage } from '../../../helpers/localStorage';
 import { ListUserDto } from '../../../models/user/listUserDto';
+import { NavUpdateService } from '../../../services/nav-update/nav-update.service';
+import { InvoiceService } from '../../../services/invoice-service/invoice.service';
+import { InvoiceResponse } from '../../../models/invoices/Response/InvoiceResponse';
+import { CartCountService } from '../../../services/cartcount-service/cartcount-service.service';
 
 @Component({
   selector: 'app-login',
@@ -22,11 +26,15 @@ export class LoginComponent {
 
   constructor(
     private router: Router, 
-    private authService: AuthService){}
+    private navUpdateService: NavUpdateService,
+    private authService: AuthService, 
+    private invoiceService: InvoiceService, 
+    private cartCountService: CartCountService){}
 
   ngOnInit(){
-    this.loginDto = new LoginDto("","");
+    this.loginDto = new LoginDto("","","");
     this.localStorage = new LocalStorage();
+    this.localStorage.clearCredentials('cred_cache');
   }
 
   login(){
@@ -37,14 +45,24 @@ export class LoginComponent {
       if(!result.isSuccess && result.value.toString() === '404'){
         this.changeStateIf404();    
         this.resetLoginState();
-
         return;
       }
-
+      
       const user = result.value as ListUserDto;
-  
-      this.localStorage.setLocalStorage(user.username, user.isAdmin);
+    
+      this.localStorage.setLocalStorage(user.username, user.isAdmin, user.id, user.name, user.surname);
+      this.navUpdateService.changeMenu(user.isAdmin);
+      this.navUpdateService.displayGreeting(user);
+      this.getInvoiceCount();
       this.router.navigate(['home']);
+    });
+  }
+
+  getInvoiceCount(){
+    const client = this.localStorage.getLocalStorage('cred_cache');
+    this.invoiceService.getInvoicesByClientId(client.clientId).subscribe(data => {
+      const itemCount = (data as InvoiceResponse[]).length;
+      this.cartCountService.cartCount(itemCount);
     });
   }
 
@@ -57,7 +75,7 @@ export class LoginComponent {
   private resetLoginState(){
     setTimeout(() => {
       this.isMsgVisible = false;
-      this.loginDto = new LoginDto('','');
+      this.loginDto = new LoginDto('','','');
     }, 3000);
   }
 }

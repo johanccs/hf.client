@@ -1,3 +1,8 @@
 export class CredCache {
-    constructor(private username: string, private isAdmin:boolean){}
+    constructor(
+        public username: string, 
+        public isAdmin:boolean, 
+        public clientId: string, 
+        public name: string, 
+        public surname){}
 }
