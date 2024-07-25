@@ -4,7 +4,7 @@
             <h5 class="card-title" class="lg">{{cartItem.productName}}</h5>
             <div class="card-text">
                 <div>
-                    <img src="assets/images/products/tmp/laptop.jpg" />
+                    <img src="{{cartItem.imageUrl}}" />
                 </div>
                 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
                     <div class="medium">{{cartItem.productDescription}}</div>
@@ -13,7 +13,7 @@
                     <span>
                         <input type="text" 
                                name="quantity"
-                               [(ngModel)]="newInvoice.quantity"
+                               [(ngModel)]="cartItem.quantity"
                                class="qty-location"/>
                     </span>
                     <button type="submit" class="btn btn-outline-warning btn-sm" style="float: right;">

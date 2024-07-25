@@ -1,8 +1,5 @@
-.title {
-    font-family: 'Montserrat';
-}
 
-label {
+label, .title {
     font-family: 'Montserrat';
 }
 

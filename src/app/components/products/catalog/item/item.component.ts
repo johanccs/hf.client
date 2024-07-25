@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ListProductType } from '../../../../models/products/listProductType';
 import { NgForm } from '@angular/forms';
-import { NewInvoiceType } from '../../../../models/invoices/newInvoiceType';
+import { LocalStorage } from '../../../../helpers/localStorage';
+import { Router } from '@angular/router';
+import { NewInvoiceLine } from '../../../../models/invoices/newInvoiceLine';
 
 @Component({
   selector: 'app-prod-item',
@@ -11,18 +13,27 @@ import { NewInvoiceType } from '../../../../models/invoices/newInvoiceType';
 export class ItemComponent {
 
   @Input() cartItem: ListProductType;
+  @Output() onInvoiceCreated = new EventEmitter();
 
-  newInvoice: NewInvoiceType;
+  localStorage: LocalStorage;
+
+  newInvoice: NewInvoiceLine;
   
+  constructor(private router: Router){}
+
   ngOnInit(){
-    console.log('CartItem' ,this.cartItem);
-    this.newInvoice = new NewInvoiceType(0,0,1);
+    this.localStorage = new LocalStorage();
   }
 
   onSubmit(form: NgForm){
-    //Get clientId from localStorage
-    const clientId = 1;
-    this.newInvoice = new NewInvoiceType(this.cartItem.id, clientId, form.value.quantity);
-  }
+    const client = this.localStorage.getLocalStorage('cred_cache');
 
+    if(!client){
+      alert('Please login before selecting products');
+      this.router.navigate(['login']);
+    }
+
+    this.newInvoice = new NewInvoiceLine(this.cartItem.id, this.cartItem.price, form.value.quantity);
+    this.onInvoiceCreated.emit(this.newInvoice);
+  }
 }

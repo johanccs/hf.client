@@ -23,6 +23,7 @@ import { FooterNavComponent } from './components/navs/footer-nav/footer-nav.comp
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { UsersComponent } from './components/auth/users/list/users.component';
 import { UserDetailComponent } from './components/auth/users/user-detail/user-detail.component';
+import { CreateProductComponent } from './components/products/admin/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { UserDetailComponent } from './components/auth/users/user-detail/user-de
     ForgotPasswordComponent,
     FooterNavComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,

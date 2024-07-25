@@ -22,8 +22,6 @@ export class AuthService {
   registerUser(user: NewUserDto){
     const url = `${this.apiUrl}/auth/register`;
     
-    console.log('authservice', JSON.stringify(user));
-
     return this.httpClient.post(url,user);
   }
 

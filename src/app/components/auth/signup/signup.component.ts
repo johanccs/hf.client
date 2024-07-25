@@ -38,7 +38,6 @@ export class SignupComponent {
       form.value.dateRegistered);
 
       this.authService.registerUser(newUser).subscribe(data => {
-        console.log(data);
         this.result = data as Result;
         this.title = `User id - ${this.result.value} saved!`;
         if(this.result.isSuccess){
