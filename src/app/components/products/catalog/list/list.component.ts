@@ -5,6 +5,8 @@ import { NewInvoiceHeader } from '../../../../models/invoices/newInvoiceHeader';
 import { NewInvoiceLine } from '../../../../models/invoices/newInvoiceLine';
 import { LocalStorage } from '../../../../helpers/localStorage';
 import { InvoiceService } from '../../../../services/invoice-service/invoice.service';
+import { ToastrService } from 'ngx-toastr';
+import { Result } from '../../../../models/result';
 
 @Component({
   selector: 'app-list',
@@ -20,7 +22,10 @@ export class ListComponent {
   title: string = 'Catalog';
   buttonTitle = 'Go to cart';
 
-  constructor(private prodService: ProductService, private invoiceService: InvoiceService){}
+  constructor(
+    private prodService: ProductService, 
+    private invoiceService: InvoiceService, 
+    private toastr: ToastrService){}
 
   ngOnInit(){
     this.localStorage = new LocalStorage();
@@ -52,17 +57,33 @@ export class ListComponent {
   addToInvoiceCollection(invoice: NewInvoiceLine){
     this.invoice.invoiceLines.push(invoice);
     this.buttonTitle = ' ' + this.invoice.invoiceLines.length + ' items going to cart'; 
+    this.showSuccess(`Item added to cart`, 'Cart');
+
   }
 
   gotoCart(){
     this.invoiceService.createInvoice(this.invoice).subscribe(data=> {
-      console.log(data);
+      const results = data as Result;
+      if(results.isSuccess){
+        this.showSuccess(`Invoice ${results.value.slice(0,5)} was created`, 'Invoice');
+
+      }else{
+        this.showError(`${results.error.code} ${results.error.name}`);
+      }
     });
   }
 
   private getCurrentDate(){
     const today = new Date();
     return today.toLocaleDateString();
+  }
+
+  private showSuccess(msg: string, title: string){
+    this.toastr.success(msg, title)
+  }
+
+  private showError(msg: string){
+    this.toastr.error(msg, 'Error');
   }
 
 }
