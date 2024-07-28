@@ -13,21 +13,22 @@ import { ForgotPasswordComponent } from './components/auth/forgot-password/forgo
 import { UsersComponent } from './components/auth/users/list/users.component';
 import { UserDetailComponent } from './components/auth/users/user-detail/user-detail.component';
 import { CreateProductComponent } from './components/products/admin/create-product/create-product.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'catalog', component: ListComponent },
-  { path: 'admin-product-list', component: ProductListComponent },
-  { path: 'admin-product-edit', component: ProductDetailComponent },
-  { path: 'admin-product-create', component: CreateProductComponent },
-  { path: 'user-invoices', component: InvoiceListComponent },
-  { path: 'user-invoice', component: InvoiceDetailComponent },
-  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'admin-product-list', component: ProductListComponent,canActivate: [AuthGuard] },
+  { path: 'admin-product-edit', component: ProductDetailComponent,canActivate: [AuthGuard] },
+  { path: 'admin-product-create', component: CreateProductComponent,canActivate: [AuthGuard] },
+  { path: 'user-invoices', component: InvoiceListComponent, canActivate: [AuthGuard] },
+  { path: 'user-invoice', component: InvoiceDetailComponent,canActivate: [AuthGuard] },
+  { path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'user', component: UserDetailComponent },
+  { path: 'users', component: UsersComponent,canActivate: [AuthGuard] },
+  { path: 'user', component: UserDetailComponent,canActivate: [AuthGuard] },
   
 ];
 
