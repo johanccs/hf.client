@@ -5,7 +5,7 @@ import { InvoiceService } from '../../../services/invoice-service/invoice.servic
 import { LocalStorage } from '../../../helpers/localStorage';
 import { NewInvoiceHeader } from '../../../models/invoices/newInvoiceHeader';
 import { ListInvoiceHeader } from '../../../models/invoices/listInvoiceHeader';
-import { InvoiceResponse } from '../../../models/invoices/Response/InvoiceResponse';
+import { InvoiceResponse } from '../../../models/invoices/response/invoiceResponse';
 
 @Component({
   selector: 'app-invoice-list',

@@ -7,8 +7,9 @@ import { LocalStorage } from '../../../helpers/localStorage';
 import { ListUserDto } from '../../../models/user/listUserDto';
 import { NavUpdateService } from '../../../services/nav-update/nav-update.service';
 import { InvoiceService } from '../../../services/invoice-service/invoice.service';
-import { InvoiceResponse } from '../../../models/invoices/Response/InvoiceResponse';
+import { InvoiceResponse } from '../../../models/invoices/response/invoiceResponse';
 import { CartCountService } from '../../../services/cartcount-service/cartcount-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,8 @@ export class LoginComponent {
     private navUpdateService: NavUpdateService,
     private authService: AuthService, 
     private invoiceService: InvoiceService, 
-    private cartCountService: CartCountService){}
+    private cartCountService: CartCountService,
+    private toastr: ToastrService){}
 
   ngOnInit(){
     this.loginDto = new LoginDto("","","");
@@ -54,7 +56,10 @@ export class LoginComponent {
       this.navUpdateService.changeMenu(user.isAdmin);
       this.navUpdateService.displayGreeting(user);
       this.getInvoiceCount();
+      this.showSuccess();
       this.router.navigate(['home']);
+    }, error => {
+      this.showError(`${error.statusText} - Please contact the administrator for assistance`);
     });
   }
 
@@ -78,4 +83,13 @@ export class LoginComponent {
       this.loginDto = new LoginDto('','','');
     }, 3000);
   }
+
+  private showSuccess(){
+    this.toastr.success("User logged in successfully");
+  }
+
+  private showError(msg: string){
+    this.toastr.error(msg, 'Error');
+  }
+
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { UsersComponent } from './components/auth/users/list/users.component';
 import { UserDetailComponent } from './components/auth/users/user-detail/user-detail.component';
 import { CreateProductComponent } from './components/products/admin/create-product/create-product.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { CreateProductComponent } from './components/products/admin/create-produ
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
