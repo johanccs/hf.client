@@ -4,5 +4,5 @@ export class CredCache {
         public isAdmin:boolean, 
         public clientId: string, 
         public name: string, 
-        public surname){}
+        public surname: string){}
 }

@@ -36,7 +36,6 @@ export class LoginComponent {
   ngOnInit(){
     this.loginDto = new LoginDto("","","");
     this.localStorage = new LocalStorage();
-    this.localStorage.clearCredentials('cred_cache');
   }
 
   login(){
@@ -51,15 +50,19 @@ export class LoginComponent {
       }
       
       const user = result.value as ListUserDto;
+      const token = result.token;
     
       this.localStorage.setLocalStorage(user.username, user.isAdmin, user.id, user.name, user.surname);
+      this.localStorage.setToken(token);
       this.navUpdateService.changeMenu(user.isAdmin);
       this.navUpdateService.displayGreeting(user);
       this.getInvoiceCount();
       this.showSuccess();
       this.router.navigate(['home']);
     }, error => {
-      this.showError(`${error.statusText} - Please contact the administrator for assistance`);
+      this.showError(`${error.error} - Please contact the administrator for assistance`);
+      this.buttonMessage = "Login";
+      this.resetLoginState();
     });
   }
 

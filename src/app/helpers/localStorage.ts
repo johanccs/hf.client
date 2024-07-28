@@ -11,6 +11,10 @@ export class LocalStorage {
         localStorage.setItem('cred_cache', JSON.stringify(new CredCache(username, isAdmin, clientId, name, surname)));
     }
 
+    public setToken(token: string){
+        localStorage.setItem("jwt", token);
+    }
+
     public getLocalStorage(key: string){
         const val = localStorage.getItem(key);
         const strVal= JSON.parse(val);

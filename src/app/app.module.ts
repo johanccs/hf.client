@@ -26,6 +26,12 @@ import { UsersComponent } from './components/auth/users/list/users.component';
 import { UserDetailComponent } from './components/auth/users/user-detail/user-detail.component';
 import { CreateProductComponent } from './components/products/admin/create-product/create-product.component';
 import { ToastrModule } from 'ngx-toastr';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter(){
+  return localStorage.getItem("jwt");
+}
+
 
 @NgModule({
   declarations: [
@@ -57,7 +63,14 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:5001"],
+        disallowedRoutes: []
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
